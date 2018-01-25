@@ -32,7 +32,7 @@ function showCountriesList(resp) {
 		.append($('<p>').text('Population: ' + item.population))
 		.append($('<p>').text('Area: ' + item.area))
 		.append($('<p>').text('Time-zones: ' + item.timezones))
-		.append($('<div>').prepend('<img src="' + item.flag + '">'))
+		.append($('<div>').prepend('<img ' + 'class="flag"' + 'src="' + item.flag + '">'))
 		.appendTo(countriesList);
 	});
 }
