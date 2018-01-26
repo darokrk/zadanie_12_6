@@ -8,18 +8,6 @@ var countriesList = $('#countries');
 $('#search').click(searchCountries);
 $('#country-name').keypress(searchCountries);
 
-// function implementation onclick
-
-function searchCountries() {
-	var countryName = $('#country-name').val();
-	if(!countryName.length) countryName = 'Poland';
-	$.ajax({
-		url: url + countryName,
-		method: 'GET',
-		success: showCountriesList
-	});
-}
-
 // show country list function implementation
 
 function showCountriesList(resp) {
@@ -32,8 +20,19 @@ function showCountriesList(resp) {
 		.append($('<p>').text('Population: ' + item.population))
 		.append($('<p>').text('Area: ' + item.area))
 		.append($('<p>').text('Time-zones: ' + item.timezones))
-		.append($('<div>').prepend('<img ' + 'class="flag"' + 'src="' + item.flag + '">'))
+		.append($('<div>').append('<img ' + 'class="flag"' + 'src="' + item.flag + '">'))
 		.appendTo(countriesList);
 	});
 }
 
+// function implementation onclick
+
+function searchCountries() {
+	var countryName = $('#country-name').val();
+	if(!countryName.length) countryName = 'Poland';
+	$.ajax({
+		url: url + countryName,
+		method: 'GET',
+		success: showCountriesList
+	});
+}
