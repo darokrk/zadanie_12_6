@@ -3,11 +3,6 @@
 var url = 'https://restcountries.eu/rest/v2/name/';
 var countriesList = $('#countries');
 
-// attaching a request for a button
-
-$('#search').click(searchCountries);
-$('#country-name').keypress(searchCountries);
-
 // show country list function implementation
 
 function showCountriesList(resp) {
@@ -36,3 +31,8 @@ function searchCountries() {
 		success: showCountriesList
 	});
 }
+
+// attaching a request for a button
+
+$('#search').click(searchCountries);
+$('#country-name').keypress(searchCountries);
